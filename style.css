@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --cinza-login: #f0ffffde;
+    --bg-color: #201b2c;
+    --roxo-1: #cb77ff;
+    --roxo-2: #2f2841;
+    --roxo-3: #7E57C2;
+    --roxo-4: #514869;
+    --sombra-primaria: #00000056;
+    --sombra-secundaria: #9000ff52;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* main*/
+.main-login {
+    width: 100vw;
+    min-height: 100vh;
+    background: var(--bg-color);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.LL {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.LL h1{
+    font-size: clamp(24px, 3vw, 45px); 
+    color: var(--roxo-1);
+    margin-bottom: 20px;
+}
+
+.LL-image {
+    width: 35vw;
+    max-width: 500px;
+    min-width: 250px;
+}
+
+.RL {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 60%;
+    max-width: 450px; 
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 40px;
+    background: var(--roxo-2);
+    border-radius: 20px;
+    box-shadow: 0px 10px 50px var(--sombra-primaria);
+    position: relative;
+    overflow: hidden;
+}
+
+.card * {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(
+        transparent, 
+        transparent, 
+        transparent, 
+        var(--roxo-3)
+    );
+    animation: rotate-saber 4s linear infinite;
+    z-index: 0;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 2px; 
+    background: var(--roxo-2);
+    border-radius: 17px;
+    z-index: 0;
+}
+
+@keyframes rotate-saber {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.card h2 {
+    color: var(--roxo-3);
+    font-weight: 800;
+    margin: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/*form*/
+.text-login {
+    width: 100%;
+    margin: 15px 0;
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    justify-content:center;
+}
+
+.text-login input {
+    outline: none;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: var(--roxo-4);
+    color: var(--cinza-login);
+    font-size: 16px;
+    box-shadow: 0px 10px 40px var(--sombra-primaria);
+    box-sizing: border-box;
+}
+
+.text-login label {
+    color: var(--cinza-login);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.text-login input::placeholder{
+    color: #f0ffff90;
+}
+
+/*Botão-Login*/
+.btn-1 {
+    width: 100%;
+    padding: 16px 0px;
+    border:none;
+    margin: 35px 0 10px 0;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: var(--roxo-3);
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px var(--sombra-secundaria);
+}
+.btn-1:hover {
+    background: var(--roxo-1);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 10px 40px -12px var(--sombra-secundaria);
+}
+
+/*Responsividade*/
+@media only screen and (max-width: 950px){
+    .card {
+        width: 85%;
+    }
+    .LL-image {
+        width: 45vw;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main-login {
+        flex-direction: column;
+        padding: 40px 0;
+    }
+    .LL h1 {
+        display:none;
+    }
+    .LL {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .RL {
+        width: 100%;
+    }
+    .LL-image {
+        width: 65vw;
+    }
+    .card {
+        width: 90%; 
+        padding: 40px 25px; 
+    }
+}
